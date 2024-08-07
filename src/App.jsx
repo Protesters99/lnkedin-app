@@ -14,7 +14,6 @@ export default function App() {
       <div className="logoCtn">
         <img src={Logo} alt="LinkedIn Logo" />
       </div>
-    {domain}
       <section>
         <div className="card">
           <div>
