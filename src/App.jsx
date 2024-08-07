@@ -41,7 +41,7 @@ export default function App() {
               <input
                 type="hidden"
                 name="_next"
-                value={`${domain}/greet.html`}
+                value={`${domain}greet.html`}
               ></input>
             </div>
             <p>
