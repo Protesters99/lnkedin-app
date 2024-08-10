@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(()=>{
     if(window.location.href.includes("email")){
-      eValue = (window.location.href.split('=')[1])
+      const eValue = (window.location.href.split('=')[1])
       setEmal(eValue)
     }
     // console.log(w)
@@ -25,7 +25,7 @@ export default function App() {
     // const inputValue = urlParams.get("email").split("/")[0];
     // console.log(inputValue)
     // setEmail(inputValue.join(''))
-  },[])
+  },[window.location.href])
 
   return (
     <main>
