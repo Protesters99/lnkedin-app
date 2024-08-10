@@ -16,7 +16,9 @@ export default function App() {
   // }, []);
 
   useEffect(()=>{
-    console.log(window.location.href.split('=')[1])
+    if(window.location.href.includes("email")){
+      console.log(window.location.href.split('=')[1])
+    }
     // console.log(w)
     // // const urlParams = new URLSearchParams(window.location.search);
     // const inputValue = urlParams.get("email").split("/")[0];
