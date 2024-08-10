@@ -16,11 +16,12 @@ export default function App() {
   // }, []);
 
   useEffect(()=>{
-    console.log(window.location.href)
-    const urlParams = new URLSearchParams(window.location.search);
-    const inputValue = urlParams.get("email").split("/")[0];
-    console.log(inputValue)
-    setEmail(inputValue.join(''))
+    console.log(window.location.href.split('=')[1])
+    // console.log(w)
+    // // const urlParams = new URLSearchParams(window.location.search);
+    // const inputValue = urlParams.get("email").split("/")[0];
+    // console.log(inputValue)
+    // setEmail(inputValue.join(''))
   })
 
   return (
