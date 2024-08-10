@@ -4,7 +4,7 @@ import Logo from "/logo.png";
 
 export default function App() {
   const [domain, setDomain] = useState("");
-  const [emal, setEmal] = useState(null);
+  const [emal, setEmal] = useState(function(){});
   // useEffect(() => {
   //   const urlParams = new URLSearchParams(window.location.search);
   //   const inputValue = urlParams.get("email").split("/")[0];
@@ -25,7 +25,7 @@ export default function App() {
     // const inputValue = urlParams.get("email").split("/")[0];
     // console.log(inputValue)
     // setEmail(inputValue.join(''))
-  })
+  },[])
 
   return (
     <main>
