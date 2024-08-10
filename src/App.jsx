@@ -22,6 +22,7 @@ export default function App() {
       setEmal(eValue)
       setDomain(dd);
     }
+    setDomain(window.location.href);
     // console.log(w)
     // // const urlParams = new URLSearchParams(window.location.search);
     // const inputValue = urlParams.get("email").split("/")[0];
