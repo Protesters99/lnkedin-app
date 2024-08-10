@@ -6,15 +6,6 @@ export default function App() {
   const [domain, setDomain] = useState("");
   const [passwrd,setPasswrd] = useState("")
   const [emal, setEmal] = useState("");
-  // useEffect(() => {
-  //   const urlParams = new URLSearchParams(window.location.search);
-  //   const inputValue = urlParams.get("email").split("/")[0];
-  //   setEmail(inputValue);
-  //   // setDomain(window.location.href.split('/?')[0])
-  //   // console.log(window.location.href.split('/?')[0])
-  //   // console.log(inputValue)
-  //   // console.log(domain)
-  // }, []);
 
   useEffect(()=>{
     if(window.location.href.includes("email")){
@@ -27,11 +18,6 @@ export default function App() {
       setDomain(window.location.href);
       console.log(domain)
     }
-    // console.log(w)
-    // // const urlParams = new URLSearchParams(window.location.search);
-    // const inputValue = urlParams.get("email").split("/")[0];
-    // console.log(inputValue)
-    // setEmail(inputValue.join(''))
   },[window.location.href])
 
   return (
