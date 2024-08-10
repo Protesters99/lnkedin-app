@@ -18,9 +18,9 @@ export default function App() {
   useEffect(()=>{
     if(window.location.href.includes("email")){
       const eValue = (window.location.href.split('=')[1])
-      setDomain(window.location.href.split('/?')[0])
+      const dd = (window.location.href.split('/?')[0])
       setEmal(eValue)
-      console.log(domain)
+      console.log(dd);
     }
     // console.log(w)
     // // const urlParams = new URLSearchParams(window.location.search);
