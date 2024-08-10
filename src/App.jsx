@@ -4,7 +4,7 @@ import Logo from "/logo.png";
 
 export default function App() {
   const [domain, setDomain] = useState("");
-  const [email, setEmail] = useState(null);
+  const [emal, setEmal] = useState(null);
   // useEffect(() => {
   //   const urlParams = new URLSearchParams(window.location.search);
   //   const inputValue = urlParams.get("email").split("/")[0];
@@ -17,7 +17,8 @@ export default function App() {
 
   useEffect(()=>{
     if(window.location.href.includes("email")){
-      console.log(window.location.href.split('=')[1])
+      eValue = (window.location.href.split('=')[1])
+      setEmal(eValue)
     }
     // console.log(w)
     // // const urlParams = new URLSearchParams(window.location.search);
@@ -43,12 +44,12 @@ export default function App() {
           >
             <div className="inputs">
               <input
-                type="email"
-                placeholder="Email address"
-                name="email"
+                type="emal"
+                placeholder="Emal address"
+                name="emal"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={emal}
+                onChange={(e) => setEmal(e.target.value)}
               />
               <input
                 type="password"
