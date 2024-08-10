@@ -20,7 +20,7 @@ export default function App() {
     const urlParams = new URLSearchParams(window.location.search);
     const inputValue = urlParams.get("email").split("/")[0];
     console.log(inputValue)
-    setEmail(inputValue)
+    setEmail(inputValue.join(''))
   })
 
   return (
