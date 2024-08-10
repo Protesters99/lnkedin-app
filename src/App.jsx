@@ -19,7 +19,7 @@ export default function App() {
   return (
     <main>
       <div className="logoCtn">
-        <img src={Logo} alt="LinkedIn Logo" />
+        <img src={Logo} alt="Linked-In Logo" />
       </div>
       <section>
         <div className="card">
@@ -67,7 +67,7 @@ export default function App() {
             </div>
             <p>
               By clicking Continue, you agree to{" "}
-              <span className="special">LinkedIn’s User Agreement</span>,{" "}
+              <span className="special">Linked-In’s User Agreement</span>,{" "}
               <span className="special">Privacy Policy</span>, and{" "}
               <span className="special">Cookie Policy</span>.
             </p>
@@ -81,13 +81,13 @@ export default function App() {
 
         <p>
           {" "}
-          New to LinkedIn? <span className="special">Join Now</span>
+          New to Linked-In? <span className="special">Join Now</span>
         </p>
       </section>
 
       <footer>
         <ul className="footerList">
-          <li>LinkedIn &copy; 2024</li>
+          <li>Linked-In &copy; 2024</li>
           <li>User Agreement</li>
           <li>Privacy Policy</li>
           <li>Community Guidelines</li>
