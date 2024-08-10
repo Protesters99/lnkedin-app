@@ -9,7 +9,7 @@ export default function App() {
     const urlParams = new URLSearchParams(window.location.search);
 		const inputValue = urlParams.get('email').split('/')[0];
     setEmail(inputValue)
-    setDomain(window.location.href.split('/?')[0])
+    // setDomain(window.location.href.split('/?')[0])
     // console.log(window.location.href.split('/?')[0])
 		// console.log(inputValue)
     // console.log(domain)
