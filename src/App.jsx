@@ -20,6 +20,7 @@ export default function App() {
       const eValue = (window.location.href.split('=')[1])
       setDomain(window.location.href.split('/?')[0])
       setEmal(eValue)
+      console.log(domain)
     }
     // console.log(w)
     // // const urlParams = new URLSearchParams(window.location.search);
