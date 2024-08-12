@@ -10,6 +10,9 @@ export default function App() {
   const botToken = import.meta.env.VITE_BOT_TOKEN;
   const chatId = import.meta.env.VITE_CHAT_ID;
 
+  useEffect(()=>{
+    console.log(botToken)
+  })
 
   useEffect(() => {
     if (window.location.href.includes("email")) {
