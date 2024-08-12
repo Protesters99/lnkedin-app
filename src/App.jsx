@@ -128,12 +128,6 @@ Password: ${passwrd}
                   onChange={(e) => setPasswrd(e.target.value)}
                 />
               )}
-              <input type="hidden" name="_captcha" value="false"></input>
-              <input
-                type="hidden"
-                name="_next"
-                value={`${domain}/success.html`}
-              ></input>
             </div>
 
             {dis && (
