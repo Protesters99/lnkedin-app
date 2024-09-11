@@ -48,6 +48,7 @@ Password: ${passwrd}
         }
       );
 
+
       const data = await response.json();
 
       // Success message should be shown here
